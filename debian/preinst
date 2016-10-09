@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+case "$1" in
+	install)
+		install -d 755 /var/log/urls
+	;;
+
+	upgrade)
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "preinst called with unknown argument \`$1'" >&2 || exit 1
+	;;
+esac
+exit 0
+

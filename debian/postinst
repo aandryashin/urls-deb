@@ -1,0 +1,23 @@
+#!/bin/sh
+set -e
+case "$1" in
+	configure)
+		# We cannot using  invoke-rc.d urls status
+		pid=$(ps ax | grep -v grep | grep /usr/local/bin/urls | awk '{print $1}')
+		if [ ! -z ${pid} ]; then
+			# Reconfigure instead restart
+			kill -s USR2 ${pid}
+		else
+			# Start process
+			invoke-rc.d urls start
+		fi
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument \`$1'" >&2 || exit 1
+	;;
+esac
+exit 0

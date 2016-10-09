@@ -1,0 +1,12 @@
+Source: urls
+Section: misc
+Priority: extra
+Maintainer: Alexander Andryashin <aandryashin@gmail.com>
+Build-Depends: cdbs, debhelper (>= 7.0.50~)
+Standards-Version: 3.9.2
+
+Package: urls
+Architecture: amd64
+Depends: upstart, etcd
+Conflicts: urls
+Description: urls application

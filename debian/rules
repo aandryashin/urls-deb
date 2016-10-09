@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+export GOROOT := /usr/local/go
+export GOPATH := $(shell pwd)/build
+export PATH := ${GOROOT}/bin:${GOPATH}/bin:${PATH}
+
+build:
+	mkdir build
+	go get github.com/aandryashin/urls
+	go get github.com/tools/godep
+	cd ${GOPATH}/src/github.com/aandryashin/urls && godep restore && go build
+clean::
+	rm -Rf build || true

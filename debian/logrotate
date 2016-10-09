@@ -1,0 +1,10 @@
+/var/log/urls/urls.log {
+        daily
+        missingok
+        rotate 7
+        compress
+        delaycompress
+        create 644 urls adm
+        sharedscripts
+        copytruncate
+}

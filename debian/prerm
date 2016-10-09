@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+case "$1" in
+	upgrade|remove)
+		# keep process running, postins will send USR2
+	;;
+
+	remove)
+		invoke-rc.d urls stop
+	;;
+esac
+exit 0

@@ -1,0 +1,3 @@
+build/bin/urls usr/local/bin/
+build/src/github.com/aandryashin/urls/cert etc/urls/
+build/src/github.com/aandryashin/urls/html etc/urls/
